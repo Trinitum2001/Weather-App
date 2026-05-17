@@ -1,0 +1,22 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cat \"c:\\\\Users\\\\PC-Ruben1\\\\OneDrive - Universidad del Valle de México S.C\\\\Documents\\\\Projeto\\\\Weather\\\\node_modules\\\\@tailwindcss\\\\vite\\\\dist\\\\index.mjs\" 2>/dev/null | head -50)",
+      "Read(//c/Users/PC-Ruben1/OneDrive - Universidad del Valle de México S.C/Documents/Projeto/Weather/node_modules/@tailwindcss/vite/dist/**)",
+      "Bash(npm run *)",
+      "Bash(git rm *)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git remote *)",
+      "Bash(git branch *)",
+      "Bash(git push *)",
+      "Bash(Remove-Item -Recurse -Force \"c:\\\\Users\\\\PC-Ruben1\\\\OneDrive - Universidad del Valle de México S.C\\\\Documents\\\\Proyecto\\\\Weather\\\\node_modules\")",
+      "Bash(Remove-Item -Force \"c:\\\\Users\\\\PC-Ruben1\\\\OneDrive - Universidad del Valle de México S.C\\\\Documents\\\\Proyecto\\\\Weather\\\\package.json\")",
+      "Bash(Remove-Item -Force \"c:\\\\Users\\\\PC-Ruben1\\\\OneDrive - Universidad del Valle de México S.C\\\\Documents\\\\Proyecto\\\\Weather\\\\package-lock.json\")"
+    ],
+    "additionalDirectories": [
+      "C:\\Proyectos",
+      "c:\\Users\\PC-Ruben1\\OneDrive - Universidad del Valle de M�xico S.C\\Documents\\Proyecto\\Weather"
+    ]
+  }
+}
