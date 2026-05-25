@@ -1,31 +1,36 @@
-import { useSuspenseQuery } from '@tanstack/react-query';
-import Card from './card';
-import { getWeather } from '../../api';
-import WeatherIcon from '../WeatherIcon';
+import { useSuspenseQuery } from "@tanstack/react-query";
+import Card from "./card";
+import { getWeather } from "../../api";
+import WeatherIcon from "../WeatherIcon";
+import type { Coords } from "../../types";
 
-type Props = {}
+type Props = {
+  coords: Coords;
+};
 
-export default function DailyForecast({}: Props) {
-    const {data} = useSuspenseQuery({
-    queryKey: ['weather'],
-    queryFn: () => getWeather({ lat: 10, lon: 25 })
-  })
+export default function DailyForecast({ coords }: Props) {
+  const { data } = useSuspenseQuery({
+    queryKey: ["weather", coords],
+    queryFn: () => getWeather({ lat: coords.lat, lon: coords.lon }),
+  });
 
   return (
     <Card title="Daily Forecast" childrenClassName="flex flex-col gap-4">
-            {data?.daily.map(day => (
-                <div key={day.dt} className="flex justify-between">
-                    <p className="w-9">
-                        {new Date(day.dt * 1000).toLocaleDateString(undefined, {
-                        weekday: "short"
-                    }).replace(/^./, c => c.toUpperCase())}
-                    </p>
-                    <WeatherIcon src={day.weather[0].icon} />
-                    <p>{Math.round(day.temp.day)}°C</p>
-                    <p className="text-gray-400/75">{Math.round(day.temp.min)}°C</p>
-                    <p className="text-gray-400/75">{Math.round(day.temp.max)}°C</p>
-                </div>
-            ))}
+      {data?.daily.map((day) => (
+        <div key={day.dt} className="flex justify-between">
+          <p className="w-9">
+            {new Date(day.dt * 1000)
+              .toLocaleDateString(undefined, {
+                weekday: "short",
+              })
+              .replace(/^./, (c) => c.toUpperCase())}
+          </p>
+          <WeatherIcon src={day.weather[0].icon} />
+          <p>{Math.round(day.temp.day)}°C</p>
+          <p className="text-gray-400/75">{Math.round(day.temp.min)}°C</p>
+          <p className="text-gray-400/75">{Math.round(day.temp.max)}°C</p>
+        </div>
+      ))}
     </Card>
-  )
+  );
 }
