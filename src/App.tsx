@@ -8,7 +8,7 @@ import AdditionalInfo from "./components/cards/AdditionalInfo";
 function App() {
   const { data } = useQuery({
     queryKey: ["weather"],
-    queryFn: () => getWeather({ lat: 10, lon: 25 }),
+    queryFn: () => getWeather({ lat: 17.5497, lon: -92.9521 }),
   });
 
   return (
